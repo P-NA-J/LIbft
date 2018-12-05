@@ -64,6 +64,8 @@ SRC =   ft_memset.c \
 		print_bit.c \
 		put_bit_to_one.c \
 		put_bit_to_zero.c \
+		ft_lstdup.c \
+		ft_lst_push_back.c \
 
 OBJ = $(SRC:.c=.o)
 
@@ -74,7 +76,7 @@ $(NAME): $(OBJ)
 	ranlib $@
 
 %.o: %.c coucou
-	$(CC) $(CFLAG) -c $< -o $@
+	gcc -Wall -Wextra -Werror -c $< -o $@
 
 clean:
 	rm -f *.o

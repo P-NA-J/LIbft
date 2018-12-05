@@ -6,11 +6,12 @@
 /*   By: pauljull <pauljull@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/17 10:17:31 by pauljull          #+#    #+#             */
-/*   Updated: 2018/11/21 12:01:59 by pauljull         ###   ########.fr       */
+/*   Updated: 2018/12/04 22:20:44 by pauljull         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 
 static int			abs_value(int n)
 {

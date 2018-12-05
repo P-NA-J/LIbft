@@ -6,11 +6,12 @@
 /*   By: pauljull <pauljull@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/17 08:43:08 by pauljull          #+#    #+#             */
-/*   Updated: 2018/11/21 11:57:49 by pauljull         ###   ########.fr       */
+/*   Updated: 2018/12/04 22:21:50 by pauljull         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 
 static unsigned int	ft_word(char const *s, char c)
 {

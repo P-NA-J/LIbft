@@ -6,11 +6,12 @@
 /*   By: pauljull <pauljull@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/10 16:47:11 by pauljull          #+#    #+#             */
-/*   Updated: 2018/11/19 17:44:39 by pauljull         ###   ########.fr       */
+/*   Updated: 2018/12/04 22:14:28 by pauljull         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <unistd.h>
 
 void		print_bit(char c)
 {

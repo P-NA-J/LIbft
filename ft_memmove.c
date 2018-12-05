@@ -6,7 +6,7 @@
 /*   By: pauljull <pauljull@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/19 19:04:20 by pauljull          #+#    #+#             */
-/*   Updated: 2018/11/22 15:43:15 by pauljull         ###   ########.fr       */
+/*   Updated: 2018/12/05 13:12:53 by pauljull         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 	size_t	i;
 
 	i = 0;
+	if (dst == src)
+		return (dst);
 	if (dst > src)
 	{
 		while (i < len)

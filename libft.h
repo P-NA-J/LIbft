@@ -6,7 +6,7 @@
 /*   By: pauljull <pauljull@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/09 09:00:10 by pauljull          #+#    #+#             */
-/*   Updated: 2018/11/21 11:55:08 by pauljull         ###   ########.fr       */
+/*   Updated: 2018/12/04 22:07:35 by pauljull         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,7 @@
 
 # define LIBFT_H
 
-# include <unistd.h>
-# include <stdlib.h>
 # include <string.h>
-# include <fcntl.h>
-# include <sys/types.h>
-# include <sys/stat.h>
 
 typedef struct		s_list
 {
@@ -27,7 +22,6 @@ typedef struct		s_list
 	size_t			content_size;
 	struct s_list	*next;
 }					t_list;
-
 void				*ft_memset(void *b, int c, size_t len);
 void				ft_bzero(void *s, size_t n);
 void				*ft_memcpy(void *dst, const void *src, size_t n);
@@ -91,5 +85,8 @@ void				put_bit_to_one(char *c, char nu);
 void				put_bit_to_zero(char *c, char nu);
 int					n_bit_value(char c, char nu);
 void				print_bit(char c);
+void				ft_lst_push_back(t_list *begin_lst, void *content,
+	size_t content_size);
+t_list				*ft_lstdup(t_list *lst);
 
 #endif
