@@ -13,17 +13,14 @@
 #include "libft.h"
 #include <unistd.h>
 
-void		print_bit(char c)
+void		print_bit(__uint128_t bit)
 {
 	char	index;
 
-	index = 7;
-	while (index >= 0)
+	index = (__uint128_t)1 << 127;
+	while (index > 0)
 	{
-		if (n_bit_value(c, index) == 1)
-			write(1, "1", 1);
-		else
-			write(1, "0", 1);
-		index -= 1;
+		(index & bit ? write(1, "1", 1) : write(1, "0", 1));
+		index >>= 1;
 	}
 }

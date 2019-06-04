@@ -13,14 +13,14 @@
 #include "libft.h"
 #include <stdlib.h>
 
-static int			abs_value(int n)
+static int			abs_value(long n)
 {
 	if (n < 0)
 		return (-n);
 	return (n);
 }
 
-static unsigned int	digit_count(int n)
+static unsigned int	digit_count(long n)
 {
 	unsigned int	count;
 
@@ -33,11 +33,11 @@ static unsigned int	digit_count(int n)
 	return (count + 1);
 }
 
-char				*ft_itoa(int n)
+char				*ft_itoa(long n)
 {
 	char			*str;
 	char			sign;
-	int				count;
+	long				count;
 
 	sign = 0;
 	count = digit_count(n);
