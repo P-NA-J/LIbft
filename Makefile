@@ -1,87 +1,110 @@
-NAME = libft.a
+LIB = libft.a
 
 CFLAG = -Wall -Werror -Wextra
 
-SRC =   ft_memset.c \
-		ft_bzero.c \
-		ft_memcpy.c \
-		ft_memccpy.c \
-		ft_memmove.c \
-		ft_memchr.c \
-		ft_memcmp.c \
-		ft_strlen.c \
-		ft_strdup.c \
-		ft_strcpy.c \
-		ft_strncpy.c \
-		ft_strcat.c \
-		ft_strncat.c \
-		ft_strlcat.c \
-		ft_strchr.c \
-		ft_strrchr.c \
-		ft_strstr.c \
-		ft_strnstr.c \
-		ft_strcmp.c \
-		ft_strncmp.c \
-		ft_atoi.c \
-		ft_isalpha.c \
-		ft_isdigit.c \
-		ft_isalnum.c \
-		ft_isascii.c \
-		ft_isprint.c \
-		ft_toupper.c \
-		ft_tolower.c \
-		ft_memalloc.c \
-		ft_memdel.c \
-		ft_strnew.c \
-		ft_strdel.c \
-		ft_strclr.c \
-		ft_striter.c \
-		ft_striteri.c \
-		ft_strmap.c \
-		ft_strmapi.c \
-		ft_strequ.c \
-		ft_strnequ.c \
-		ft_strsub.c \
-		ft_strjoin.c \
-		ft_strtrim.c \
-		ft_strsplit.c \
-		ft_itoa.c \
-		ft_putchar.c \
-		ft_putstr.c \
-		ft_putendl.c \
-		ft_putnbr.c \
-		ft_putchar_fd.c \
-		ft_putstr_fd.c \
-		ft_putendl_fd.c \
-		ft_putnbr_fd.c \
-		ft_lstnew.c \
-		ft_lstdelone.c \
-		ft_lstdel.c \
-		ft_lstadd.c \
-		ft_lstiter.c \
-		ft_lstmap.c \
-		n_bit_value.c \
-		print_bit.c \
-		put_bit_to_one.c \
-		put_bit_to_zero.c \
-		ft_lstdup.c \
-		ft_lst_push_back.c \
+INCLUDE = includes
+
+SRC_MEMORY =	memory/ft_memset.c
+SRC_MEMORY +=	memory/ft_memcpy.c
+SRC_MEMORY +=	memory/ft_memccpy.c
+SRC_MEMORY +=	memory/ft_memmove.c
+SRC_MEMORY +=	memory/ft_memchr.c
+SRC_MEMORY +=	memory/ft_memcmp.c
+SRC_MEMORY +=	memory/ft_memalloc.c
+SRC_MEMORY +=	memory/ft_memdel.c
+SRC_MEMORY +=	memory/ft_bzero.c
+
+SRC_STRING =	string/ft_strlen.c
+SRC_STRING +=	string/ft_strdup.c
+SRC_STRING +=	string/ft_strcpy.c
+SRC_STRING +=	string/ft_strncpy.c
+SRC_STRING +=	string/ft_strcat.c
+SRC_STRING +=	string/ft_strncat.c
+SRC_STRING +=	string/ft_strlcat.c
+SRC_STRING +=	string/ft_strchr.c
+SRC_STRING +=	string/ft_strrchr.c
+SRC_STRING +=	string/ft_strstr.c
+SRC_STRING +=	string/ft_strnstr.c
+SRC_STRING +=	string/ft_strcmp.c
+SRC_STRING +=	string/ft_strncmp.c
+SRC_STRING +=	string/ft_strnew.c
+SRC_STRING +=	string/ft_strdel.c
+SRC_STRING +=	string/ft_strclr.c
+SRC_STRING +=	string/ft_striter.c
+SRC_STRING +=	string/ft_striteri.c
+SRC_STRING +=	string/ft_strmap.c
+SRC_STRING +=	string/ft_strmapi.c
+SRC_STRING +=	string/ft_strequ.c
+SRC_STRING +=	string/ft_strnequ.c
+SRC_STRING +=	string/ft_strsub.c
+SRC_STRING +=	string/ft_strjoin.c
+SRC_STRING +=	string/ft_strtrim.c
+SRC_STRING +=	string/ft_strsplit.c
+
+SRC_CHARACTER =		character/ft_isalpha.c
+SRC_CHARACTER +=	character/ft_isdigit.c
+SRC_CHARACTER +=	character/ft_isalnum.c
+SRC_CHARACTER +=	character/ft_isascii.c
+SRC_CHARACTER +=	character/ft_isprint.c
+SRC_CHARACTER +=	character/ft_toupper.c
+SRC_CHARACTER +=	character/ft_tolower.c
+
+SRC_CONVERSION =	conversion/ft_atoi.c
+SRC_CONVERSION +=	conversion/ft_itoa.c
+
+SRC_PRINT =		print/ft_putchar.c
+SRC_PRINT +=	print/ft_putstr.c
+SRC_PRINT +=	print/ft_putendl.c
+SRC_PRINT +=	print/ft_putnbr.c
+SRC_PRINT +=	print/ft_putchar_fd.c
+SRC_PRINT +=	print/ft_putstr_fd.c
+SRC_PRINT +=	print/ft_putendl_fd.c
+SRC_PRINT +=	print/ft_putnbr_fd.c
+
+SRC_LIST =	list/ft_lstnew.c
+SRC_LIST +=	list/ft_lstdelone.c
+SRC_LIST +=	list/ft_lstdel.c
+SRC_LIST +=	list/ft_lstadd.c
+SRC_LIST +=	list/ft_lstiter.c
+SRC_LIST +=	list/ft_lstmap.c
+SRC_LIST +=	list/ft_lstdup.c
+SRC_LIST +=	list/ft_lst_push_back.c
+
+SRC = $(SRC_MEMORY)
+SRC += $(SRC_STRING)
+SRC += $(SRC_PRINT)
+SRC += $(SRC_LIST)
+SRC += $(SRC_CONVERSIOn)
+SRC += $(SRC_CHARACTER)
 
 OBJ = $(SRC:.c=.o)
 
-all: $(NAME)
+PATH_SRC = $(addprefix srcs/, $(SRC))
+PATH_OBJ = $(addprefix obj/, $(OBJ))
 
-$(NAME): $(OBJ)
-	ar rc $@ $(OBJ)
+
+all: directory_obj_creation $(LIB)
+
+directory_obj_creation:
+	if ! [ -d "obj/" ]; then mkdir obj ; fi
+	if ! [ -d "obj/memory" ]; then mkdir obj/memory ; fi
+	if ! [ -d "obj/string" ]; then mkdir obj/string ; fi
+	if ! [ -d "obj/character" ]; then mkdir obj/character ; fi
+	if ! [ -d "obj/list" ]; then mkdir obj/list ; fi
+	if ! [ -d "obj/conversion" ]; then mkdir obj/conversion ; fi
+	if ! [ -d "obj/print" ]; then mkdir obj/print ; fi
+
+$(LIB): $(PATH_OBJ)
+	ar rc $@ $(PATH_OBJ)
 	ranlib $@
 
-%.o: %.c coucou
-	gcc -Wall -Wextra -Werror -c $< -o $@
+$(addprefix obj/, %.o): $(addprefix srcs/, %.c)
+	$(CC) $(CFLAG) -c $< -o $@ -I$(INCLUDE)
 
 clean:
-	rm -f *.o
+	rm -rf obj
 
 fclean: clean
-	rm -f $(NAME)
+	rm -f $(LIB)
 
 re: fclean all
